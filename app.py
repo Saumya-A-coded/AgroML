@@ -617,5 +617,10 @@ def internal_error(error):
     db.session.rollback()
     return render_template('500.html'), 500
 
+@app.route("/faq")
+def faq():
+    return render_template("faq.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
