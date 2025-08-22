@@ -14,6 +14,8 @@ from datetime import timedelta
 from flask import Flask, request, jsonify
 import joblib
 from sklearn.metrics import accuracy_score
+import os, re, smtplib, ssl
+from email.message import EmailMessage
 
 # Suppress specific warnings
 warnings.filterwarnings("ignore", category=UserWarning, message="Trying to unpickle estimator StandardScaler")
@@ -24,6 +26,8 @@ app.config['SECRET_KEY'] = 'your_secret_key_here'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.permanent_session_lifetime = timedelta(days=31)  # For remember me functionality
+
+
 
 
 
@@ -505,10 +509,70 @@ def logout():
     flash('Logged out successfully.', 'success')
     return redirect(url_for('home'))
 
+@app.post('/contact')
+def contact():
+    try:
+        data = request.get_json(silent=True) or {}
+        name = (data.get('name') or '').strip()
+        email = (data.get('email') or '').strip()
+        message = (data.get('message') or '').strip()
+        hp = (data.get('hp') or '').strip()  # honeypot
+
+        # basic validation
+        if hp:
+            return jsonify({'ok': True}), 200  # silently succeed for bots
+        if not name or not email or not message:
+            return jsonify({'ok': False, 'error': 'Missing required fields.'}), 400
+        if not re.match(r'^[^@\s]+@[^@\s]+\.[^@\s]+$', email):
+            return jsonify({'ok': False, 'error': 'Please enter a valid email.'}), 400
+
+        smtp_host = os.environ.get('SMTP_HOST', 'smtp.gmail.com')
+        smtp_port = int(os.environ.get('SMTP_PORT', '587'))
+        smtp_user = os.environ.get('SMTP_USER')  # required
+        smtp_pass = os.environ.get('SMTP_PASS')  # required
+        to_email  = os.environ.get('CONTACT_RECIPIENT') or smtp_user
+
+        if not smtp_user or not smtp_pass:
+            return jsonify({'ok': False, 'error': 'Email not configured on server.'}), 500
+
+        # compose email
+        subject = "New Contact Form Message · कृShe"
+        body = f"""You have a new contact form message:
+
+Name: {name}
+Email: {email}
+
+Message:
+{message}
+"""
+        msg = EmailMessage()
+        msg['Subject'] = subject
+        msg['From'] = smtp_user
+        msg['To'] = to_email
+        # reply-to so you can reply directly to the sender
+        msg['Reply-To'] = email
+        msg.set_content(body)
+
+        # send via SMTP (TLS)
+        context = ssl.create_default_context()
+        with smtplib.SMTP(smtp_host, smtp_port, timeout=20) as server:
+            server.ehlo()
+            server.starttls(context=context)
+            server.login(smtp_user, smtp_pass)
+            server.send_message(msg)
+
+        return jsonify({'ok': True}), 200
+
+    except Exception as e:
+        # optionally log e
+        return jsonify({'ok': False, 'error': 'Server error sending email.'}), 500
+
+
 @app.route('/predict_form')
 @login_required
 def predict_form():
     return render_template('index.html')
+
 
 @app.route("/predict", methods=['POST'])
 @login_required
