@@ -121,13 +121,11 @@ def load_fertilizer_model():
 # Custom Offline Translation API
 translations = {
     "hi": {
-        "title": "कृShe - फसल अनुशंसा प्रणाली",
         "subtitle": "डेटा-चालित फसल सिफारिशों के साथ किसानों को सशक्त बनाना",
         "about_us": "हमारे बारे में",
         "contact": "संपर्क करें",
         "predict": "फसल की भविष्यवाणी करें",
         "get_started": "शुरू करें",
-        "chat_header": "कृShe सहायक",
         "chat_placeholder": "अपना संदेश टाइप करें...",
         "chat_send": "भेजें",
         "login": "लॉगिन",
@@ -155,14 +153,9 @@ translations = {
         "ph": "पीएच",
         "moisture": "नमी स्तर (%)",
         "rainfall": "वर्षा (मिमी)",
-        "about_title": "हमारे बारे में - कृShe",
         "get_recommendation": "अनुशंसा प्राप्त करें",
         "about_description": "इष्टतम फसल चयन और स्थायी कृषि के लिए डेटा-संचालित निर्णयों के साथ किसानों को सशक्त बनाना।",
         "our_mission": "हमारा मिशन",
-        "mission_text": "कृShe में, हम अत्याधुनिक मशीन लर्निंग तकनीक के माध्यम से कृषि में क्रांति लाने के मिशन पर हैं। हमारा लक्ष्य समय पर फसल अनुशंसा प्रदान करना है।",
-        "how_it_works": "कृShe कैसे काम करता है",
-        "how_it_works_text": "कृShe एक परिष्कृत मशीन लर्निंग मॉडल का उपयोग करता है जो व्यापक कृषि डेटा पर प्रशिक्षित है।",
-        "benefits": "कृShe चुनने के लाभ",
         "benefit_1": "फसल उत्पादन में वृद्धि",
         "benefit_2": "संसाधनों का सर्वोत्तम उपयोग",
         "benefit_3": "सतत कृषि का समर्थन",
@@ -170,8 +163,6 @@ translations = {
         "benefit_5": "लागत प्रभावी कृषि पद्धतियाँ",
         "benefit_6": "नवीनतम अनुसंधान के साथ नियमित अपडेट",
         "commitment": "हम नवीनतम कृषि अनुसंधान और डेटा के साथ अपने मॉडल को नियमित रूप से अपडेट करने के लिए प्रतिबद्ध हैं।",
-        "try_now": "अब कृShe आज़माएँ",
-        "register_title": "कृShe के लिए पंजीकरण करें",
         "fullname": "पूरा नाम",
          "schemes_title": "किसान योजनाएं और संसाधन <i class='fas fa-tractor'></i>",
         "email": "ईमेल",
@@ -182,7 +173,6 @@ translations = {
         "register_button": "खाता बनाएं",
         "already_registered": "पहले से खाता है?",
         "login": "लॉगिन",
-         "title_schemes": "कृShe - किसान योजनाएं",
         "temperature_placeholder": "तापमान दर्ज करें (°C)",
         "humidity_placeholder": "नमी दर्ज करें (%)",
         "ph_placeholder": "pH दर्ज करें",
@@ -190,7 +180,6 @@ translations = {
          "nitrogen_placeholder": "नाइट्रोजन दर्ज करें",
         "phosphorus_placeholder": "फॉस्फोरस दर्ज करें",
         "potassium_placeholder": "पोटैशियम दर्ज करें",
-        "title_fert": "उर्वरक सिफारिश - कृShe",
         "farmer_schemes": "किसान योजनाएँ",
         "search_schemes": "योजनाओं में खोजें...",
         "search_schemes_aria": "योजनाएं खोजें"
@@ -199,7 +188,6 @@ translations = {
     },
 
     "en": {
-        "title": "कृShe - Crop Recommendation System",
         "subtitle": "Empowering farmers with data-driven crop recommendations",
         "about_us": "About Us",
         "contact": "Contact",
@@ -214,7 +202,6 @@ translations = {
         "language": "Language",
         "email": "Email",
         "password": "Password",
-        "title_schemes": "कृShe - Farmer Schemes",
         "confirm_password": "Confirm Password",
         "mobile": "Mobile Number",
         "fullname": "Full Name",
@@ -236,14 +223,9 @@ translations = {
         "humidity": "Humidity (%)",
         "ph": "pH",
         "rainfall": "Rainfall (mm)",
-        "about_title": "About Us - कृShe",
          "about_description": "Empowering farmers with data-driven decisions for optimal crop selection and sustainable agriculture.",
         "get_recommendation": "Get Recommendation",
         "our_mission": "Our Mission",
-        "mission_text": "At कृShe, we're on a mission to revolutionize agriculture through cutting-edge machine learning technology.",
-        "how_it_works": "How कृShe Works",
-        "how_it_works_text": "कृShe utilizes a sophisticated machine learning model trained on extensive agricultural data.",
-        "benefits": "Benefits of Choosing कृShe",
         "benefit_1": "Increased crop yields",
         "benefit_2": "Optimal use of resources",
         "benefit_3": "Support for sustainable agriculture",
@@ -252,8 +234,8 @@ translations = {
         "benefit_5": "Cost-effective farming practices",
         "benefit_6": "Regular updates with latest research",
         "commitment": "We are committed to continuous improvement, updating our model with the latest agricultural research and data.",
-        "try_now": "Try कृShe Now",
-        "register_title": "Register for कृShe",
+        "try_now": "Try FARMमित्र Now",
+        "register_title": "Register for FARMमित्र",
         "fullname": "Full Name",
         "email": "Email",
         "mobile": "Mobile Number",
@@ -269,7 +251,6 @@ translations = {
         "nitrogen_placeholder": "Enter Nitrogen ",
         "phosphorus_placeholder": "Enter Phosphorus",
         "potassium_placeholder": "Enter Potassium",
-        "title_fert": "Fertilizer Recommendation - कृShe",
          "farmer_schemes": "Farmer Schemes",
          "search_schemes": "Search for schemes...",
         "search_schemes_aria": "Search schemes"
@@ -403,7 +384,6 @@ def chatbot():
     'support': 'You can contact us through:\n- Email:',
 
     # Farewell
-    'bye': 'Goodbye! Thank you for using Krishe. Have a great day ahead!',
     'thank you': 'You’re welcome! If you have any more questions, feel free to ask. Happy farming!',
     'thanks': 'You’re welcome! If you have any more questions, feel free to ask. Happy farming!',
     'thank': 'You’re welcome! If you have any more questions, feel free to ask. Happy farming!',
@@ -538,7 +518,6 @@ def contact():
             return jsonify({'ok': False, 'error': 'Email not configured on server.'}), 500
 
         # compose email
-        subject = "New Contact Form Message · कृShe"
         body = f"""You have a new contact form message:
 
 Name: {name}
