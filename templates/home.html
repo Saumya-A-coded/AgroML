@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title data-translate="title">FARMमित्र</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-color: #66a80f;
@@ -19,28 +22,32 @@
             --text-dark: #333;
             --text-light: #f8f9fa;
         }
-        
+
         body {
             font-family: 'Roboto', sans-serif;
             color: #333;
             overflow-x: hidden;
         }
-  .hero-section {
-    position: relative;
-    height: 100vh;
-    min-height: 500px;
-    overflow: hidden;
-}
 
-.background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* makes it behave like background-image: cover */
-    z-index: -2; /* stays behind everything */
-}
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* makes it behave like background-image: cover */
+            z-index: -2;
+            /* stays behind everything */
+        }
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -49,52 +56,64 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.3);
         }
+
         .navbar {
             background-color: transparent !important;
             padding: 1rem 2rem;
             transition: background-color 0.3s ease;
         }
+
         .navbar.scrolled {
             background-color: rgba(33, 37, 41, 0.9) !important;
         }
+
         .navbar-brand {
             font-family: 'Merriweather', serif;
             font-size: 1.5rem;
             color: white !important;
         }
+
         .nav-link {
             color: white !important;
             font-size: 1.1rem;
             margin: 0 10px;
             transition: all 0.3s ease;
         }
+
         .nav-link:hover {
             color: var(--primary-light) !important;
         }
+
         .navbar-toggler {
             border-color: rgba(255, 255, 255, 0.5);
             padding: 0.25rem 0.5rem;
             outline: none !important;
         }
+
         .navbar-toggler:focus {
             box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.25);
         }
+
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
+
         .dropdown-menu {
             background-color: rgba(33, 37, 41, 0.9);
             border: none;
             border-radius: 0.5rem;
         }
+
         .dropdown-item {
             color: white;
             transition: all 0.3s ease;
         }
+
         .dropdown-item:hover {
             background-color: var(--primary-dark);
             color: white;
         }
+
         .hero-content {
             position: absolute;
             top: 50%;
@@ -107,17 +126,20 @@
             padding: 0 20px;
             z-index: 10;
         }
+
         .hero-title {
             font-family: 'Merriweather', serif;
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+
         .hero-subtitle {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
+
         .cta-button {
             font-size: 1.2rem;
             padding: 12px 35px;
@@ -127,20 +149,24 @@
             transition: all 0.3s ease;
             border-radius: 50px;
         }
+
         .cta-button:hover {
             background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+
         .feature-section {
             padding: 5rem 0;
             background-color: #f8f9fa;
         }
+
         .feature-icon {
             font-size: 2.5rem;
             color: #66a80f;
             margin-bottom: 1rem;
         }
+
         .feature-title {
             font-family: 'Merriweather', serif;
             margin-bottom: 1rem;
@@ -215,8 +241,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .bot-message {
@@ -311,7 +344,7 @@
         .close-chat:hover {
             color: #ddd;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 991.98px) {
             .navbar-collapse {
@@ -320,29 +353,35 @@
                 padding: 15px;
                 margin-top: 10px;
             }
+
             .navbar-nav {
                 padding: 10px 0;
             }
+
             .nav-item {
                 margin: 5px 0;
             }
         }
-        
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
+
             .hero-subtitle {
                 font-size: 1.2rem;
             }
+
             .navbar {
                 background-color: rgba(33, 37, 41, 0.9) !important;
                 padding: 0.7rem 1rem;
             }
+
             .cta-button {
                 font-size: 1rem;
                 padding: 10px 25px;
             }
+
             .chat-container {
                 width: 90%;
                 height: 70vh;
@@ -350,48 +389,56 @@
                 right: 5%;
                 bottom: 80px;
             }
+
             .chat-toggle {
                 width: 50px;
                 height: 50px;
                 font-size: 1.3rem;
             }
         }
-        
+
         @media (max-width: 576px) {
             .hero-title {
                 font-size: 2rem;
             }
+
             .hero-subtitle {
                 font-size: 1rem;
                 margin-bottom: 1.5rem;
             }
+
             .navbar-brand {
                 font-size: 1.3rem;
             }
+
             .chat-header {
                 padding: 12px;
             }
+
             .chat-input {
                 padding: 10px;
             }
+
             .chat-input input {
                 padding: 10px;
             }
+
             .chat-input button {
                 padding: 10px 15px;
             }
         }
-        
+
         @media (max-height: 600px) {
             .hero-section {
                 height: auto;
                 min-height: 100vh;
             }
+
             .chat-container {
                 height: 60vh;
             }
         }
-        
+
         /* Preloader */
         .preloader {
             position: fixed;
@@ -406,12 +453,12 @@
             z-index: 9999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        
+
         .preloader.fade-out {
             opacity: 0;
             visibility: hidden;
         }
-        
+
         .spinner {
             width: 40px;
             height: 40px;
@@ -420,59 +467,72 @@
             border-top-color: var(--primary-color);
             animation: spin 1s ease-in-out infinite;
         }
-        
+
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Preloader -->
     <div class="preloader">
         <div class="spinner"></div>
     </div>
-    
+
     <div class="hero-section">
-           <video autoplay muted loop playsinline class="background-video">
-        <source src="{{ url_for('static', filename='agriculture.mp4') }}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="{{ url_for('static', filename='agriculture.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="hero-overlay"></div>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="/static/LOGO4F-removebg-preview.png" alt="FarmMitra Logo" style="height:150px; width:150px; object-fit:contain;"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="/"><img src="/static/LOGO4F-removebg-preview.png" alt="FarmMitra Logo"
+                        style="height:150px; width:150px; object-fit:contain;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-translate="language">Language</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-translate="language">Language</a>
 
                             <ul class="dropdown-menu" aria-labelledby="languageDropdown">
                                 <li><a class="dropdown-item language-option" href="#" data-lang="en">English</a></li>
                                 <li><a class="dropdown-item language-option" href="#" data-lang="hi">हिन्दी</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('predict_form') }}" data-translate="predict">Predict</a>
+                            <a class="nav-link" href="{{ url_for('predict_form') }}"
+                                data-translate="predict">Predict</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('disease_form') }}" data-translate="disease">Detect
+                                Disease</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('about') }}" data-translate="about_us">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('fertilizer_form') }}" data-translate="fertilizer_recommendation">Fertilizer Recommendation</a>
+                            <a class="nav-link" href="{{ url_for('fertilizer_form') }}"
+                                data-translate="fertilizer_recommendation">Fertilizer Recommendation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ url_for('farmer_schemes') }}" data-translate="farmer_schemes">Farmer Schemes</a>
-                          </li>
-                          <li class="nav-item">
-                       <a class="nav-link" href="{{ url_for('faq') }}">FAQs</a>
-                           </li>
-                         <li class="nav-item">
-                           <a class="nav-link" href="#contact">Contact Us</a>
-                               </li>
+                            <a class="nav-link active" href="{{ url_for('farmer_schemes') }}"
+                                data-translate="farmer_schemes">Farmer Schemes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('faq') }}">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </li>
 
                     </ul>
                     <ul class="navbar-nav">
@@ -492,13 +552,15 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="hero-content">
             <h1 class="hero-title" data-translate="title">FARMमित्र</h1>
-            <p class="hero-subtitle" data-translate="subtitle">Empowering farmers with data-driven crop recommendations</p>
-            
+            <p class="hero-subtitle" data-translate="subtitle">Empowering farmers with data-driven crop recommendations
+            </p>
+
             {% if 'username' in session %}
-            <a href="{{ url_for('predict_form') }}" class="btn cta-button" data-translate="get_started">Get Crop Recommendation</a>
+            <a href="{{ url_for('predict_form') }}" class="btn cta-button" data-translate="get_started">Get Crop
+                Recommendation</a>
             {% else %}
             <a href="{{ url_for('login') }}" class="btn cta-button" data-translate="get_started">Get Started</a>
             {% endif %}
@@ -520,80 +582,80 @@
         </div>
     </div>
     <!-- FAQ Section -->
-<section id="faq" class="py-5 bg-light">
-  <div class="container">
-    {% include 'faq.html' %}
-  </div>
-</section>
+    <section id="faq" class="py-5 bg-light">
+        <div class="container">
+            {% include 'faq.html' %}
+        </div>
+    </section>
 
-<!-- Contact Section -->
-<!-- Contact Us Section (send email) -->
-<style>
-.contact-bg {
-    background-image: url("{{ url_for('static', filename='about1.jpg') }}");
-    background-size: cover;
-    background-position: center;
-}
-</style>
+    <!-- Contact Section -->
+    <!-- Contact Us Section (send email) -->
+    <style>
+        .contact-bg {
+            background-image: url("{{ url_for('static', filename='about1.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 
-<section id="contact-section" class="py-5 position-relative contact-bg">
-  <div class="position-absolute top-0 start-0 w-100 h-100" 
-       style="background:rgba(0,0,0,0.55);"></div>
+    <section id="contact-section" class="py-5 position-relative contact-bg">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,0.55);"></div>
 
-  <div class="container position-relative text-white">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <h2 class="text-center mb-2" style="font-family:'Merriweather', serif;">Contact Us</h2>
-        <p class="text-center mb-4">
-          We’d love to hear from you! Share your queries, suggestions, or feedback.
-        </p>
+        <div class="container position-relative text-white">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center mb-2" style="font-family:'Merriweather', serif;">Contact Us</h2>
+                    <p class="text-center mb-4">
+                        We’d love to hear from you! Share your queries, suggestions, or feedback.
+                    </p>
 
-        <!-- status alert -->
-        <div id="contactAlert" class="alert d-none" role="alert"></div>
+                    <!-- status alert -->
+                    <div id="contactAlert" class="alert d-none" role="alert"></div>
 
-        <form id="contactForm" class="p-4 rounded-3"
-              style="background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);">
-          <!-- honeypot (anti-bot) -->
-          <input type="text" id="hpField" name="hpField" autocomplete="off"
-                 style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" tabindex="-1">
+                    <form id="contactForm" class="p-4 rounded-3"
+                        style="background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);">
+                        <!-- honeypot (anti-bot) -->
+                        <input type="text" id="hpField" name="hpField" autocomplete="off"
+                            style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" tabindex="-1">
 
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label">Name</label>
-              <input id="contactName" type="text" class="form-control"
-                     placeholder="Enter your name" required>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Name</label>
+                                <input id="contactName" type="text" class="form-control" placeholder="Enter your name"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input id="contactEmail" type="email" class="form-control"
+                                    placeholder="Enter your email" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Message</label>
+                                <textarea id="contactMessage" class="form-control" rows="4"
+                                    placeholder="Write your message..." required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button id="contactBtn" type="submit" class="btn cta-button">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="spinner-border spinner-border-sm ms-2 d-none" role="status"
+                                        aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <p class="text-center mt-3" style="opacity:0.9;">
+                        Or contact us on <span class="fw-semibold">6756xxxxxx | 8764xxxxxx</span>
+                    </p>
+                </div>
             </div>
-            <div class="col-md-6">
-              <label class="form-label">Email</label>
-              <input id="contactEmail" type="email" class="form-control"
-                     placeholder="Enter your email" required>
-            </div>
-            <div class="col-12">
-              <label class="form-label">Message</label>
-              <textarea id="contactMessage" class="form-control" rows="4"
-                        placeholder="Write your message..." required></textarea>
-            </div>
-            <div class="col-12 text-center">
-              <button id="contactBtn" type="submit" class="btn cta-button">
-                <span class="btn-text">Send Message</span>
-                <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <p class="text-center mt-3" style="opacity:0.9;">
-          Or contact us on <span class="fw-semibold">6756xxxxxx | 8764xxxxxx</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Preloader
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const preloader = document.querySelector('.preloader');
             setTimeout(() => {
                 preloader.classList.add('fade-out');
@@ -602,9 +664,9 @@
                 }, 500);
             }, 500);
         });
-        
+
         // Add background to navbar when scrolling
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (window.scrollY > 50) {
                 document.querySelector('.navbar').classList.add('scrolled');
             } else {
@@ -620,7 +682,7 @@
                 document.querySelector('.navbar').classList.remove('scrolled');
             }
         }
-        
+
         // Run on page load and resize
         window.addEventListener('load', checkScreenSize);
         window.addEventListener('resize', checkScreenSize);
@@ -665,11 +727,11 @@
         document.querySelector('.chat-input button').addEventListener('click', async () => {
             const input = document.querySelector('.chat-input input');
             const message = input.value.trim();
-            
+
             if (message) {
                 addMessage(message, true);
                 input.value = '';
-                
+
                 // Show typing indicator
                 const typingIndicator = document.createElement('div');
                 typingIndicator.classList.add('message', 'bot-message');
@@ -677,12 +739,12 @@
                 typingIndicator.id = 'typing-indicator';
                 document.querySelector('.chat-messages').appendChild(typingIndicator);
                 document.querySelector('.chat-messages').scrollTop = document.querySelector('.chat-messages').scrollHeight;
-                
+
                 const response = await sendMessage(message);
-                
+
                 // Remove typing indicator
                 document.getElementById('typing-indicator').remove();
-                
+
                 addMessage(response);
             }
         });
@@ -697,10 +759,10 @@
         setTimeout(() => {
             addMessage('👋 Hello! Welcome to Krishe. How can I help you today?');
         }, 1000);
-        
+
         // Language translation
         document.querySelectorAll(".language-option").forEach(item => {
-            item.addEventListener("click", function(e) {
+            item.addEventListener("click", function (e) {
                 e.preventDefault();
                 let selectedLang = this.getAttribute("data-lang");
                 localStorage.setItem("selectedLanguage", selectedLang);
@@ -716,11 +778,11 @@
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ lang: selectedLang })
                 });
-                
+
                 if (!response.ok) {
                     throw new Error('Translation request failed');
                 }
-                
+
                 let data = await response.json();
                 document.querySelectorAll("[data-translate]").forEach(element => {
                     let key = element.getAttribute("data-translate");
@@ -736,7 +798,7 @@
                 console.error('Translation error:', error);
             }
         }
-        
+
         // Set active menu item based on URL
         function setActiveMenuItem() {
             const currentPath = window.location.pathname;
@@ -748,85 +810,86 @@
                 }
             });
         }
-        
+
         // Initialize functions
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             applyTranslation();
             setActiveMenuItem();
         });
-        
+
         // Handle orientation changes for mobile devices
-        window.addEventListener('orientationchange', function() {
+        window.addEventListener('orientationchange', function () {
             // Small timeout to allow screen rendering to complete
             setTimeout(checkScreenSize, 300);
         });
         // --- Contact form submit handler ---
-(function () {
-  const form   = document.getElementById('contactForm');
-  if (!form) return;
+        (function () {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
 
-  const nameEl = document.getElementById('contactName');
-  const mailEl = document.getElementById('contactEmail');
-  const msgEl  = document.getElementById('contactMessage');
-  const hpEl   = document.getElementById('hpField');
-  const btn    = document.getElementById('contactBtn');
-  const alertB = document.getElementById('contactAlert');
-  const spinner= btn.querySelector('.spinner-border');
-  const btnTxt = btn.querySelector('.btn-text');
+            const nameEl = document.getElementById('contactName');
+            const mailEl = document.getElementById('contactEmail');
+            const msgEl = document.getElementById('contactMessage');
+            const hpEl = document.getElementById('hpField');
+            const btn = document.getElementById('contactBtn');
+            const alertB = document.getElementById('contactAlert');
+            const spinner = btn.querySelector('.spinner-border');
+            const btnTxt = btn.querySelector('.btn-text');
 
-  function showAlert(type, text) {
-    alertB.className = 'alert alert-' + type;
-    alertB.textContent = text;
-    alertB.classList.remove('d-none');
-  }
+            function showAlert(type, text) {
+                alertB.className = 'alert alert-' + type;
+                alertB.textContent = text;
+                alertB.classList.remove('d-none');
+            }
 
-  function resetAlert() {
-    alertB.classList.add('d-none');
-    alertB.textContent = '';
-  }
+            function resetAlert() {
+                alertB.classList.add('d-none');
+                alertB.textContent = '';
+            }
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    resetAlert();
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                resetAlert();
 
-    const name = nameEl.value.trim();
-    const email = mailEl.value.trim();
-    const message = msgEl.value.trim();
-    const hp = hpEl.value.trim(); // if filled, likely a bot
+                const name = nameEl.value.trim();
+                const email = mailEl.value.trim();
+                const message = msgEl.value.trim();
+                const hp = hpEl.value.trim(); // if filled, likely a bot
 
-    if (!name || !email || !message) {
-      showAlert('warning', 'Please fill all the fields.');
-      return;
-    }
+                if (!name || !email || !message) {
+                    showAlert('warning', 'Please fill all the fields.');
+                    return;
+                }
 
-    // UI disable
-    btn.disabled = true;
-    spinner.classList.remove('d-none');
+                // UI disable
+                btn.disabled = true;
+                spinner.classList.remove('d-none');
 
-    try {
-      const res = await fetch('/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message, hp })
-      });
+                try {
+                    const res = await fetch('/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, message, hp })
+                    });
 
-      const data = await res.json();
-      if (res.ok && data.ok) {
-        showAlert('success', 'Thanks! Your message has been sent.');
-        form.reset();
-      } else {
-        showAlert('danger', data.error || 'Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      console.error(err);
-      showAlert('danger', 'Network error. Please try again.');
-    } finally {
-      btn.disabled = false;
-      spinner.classList.add('d-none');
-    }
-  });
-})();
+                    const data = await res.json();
+                    if (res.ok && data.ok) {
+                        showAlert('success', 'Thanks! Your message has been sent.');
+                        form.reset();
+                    } else {
+                        showAlert('danger', data.error || 'Something went wrong. Please try again.');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    showAlert('danger', 'Network error. Please try again.');
+                } finally {
+                    btn.disabled = false;
+                    spinner.classList.add('d-none');
+                }
+            });
+        })();
 
     </script>
-  </body>
+</body>
+
 </html>

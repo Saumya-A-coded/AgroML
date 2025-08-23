@@ -14,9 +14,11 @@ from datetime import timedelta
 from flask import Flask, request, jsonify
 import joblib
 from sklearn.metrics import accuracy_score
+from CNN import predict_disease
+
 import os, re, smtplib, ssl
 from email.message import EmailMessage
-
+from werkzeug.utils import secure_filename
 # Suppress specific warnings
 warnings.filterwarnings("ignore", category=UserWarning, message="Trying to unpickle estimator StandardScaler")
 
@@ -685,6 +687,92 @@ def internal_error(error):
 def faq():
     return render_template("faq.html")
 
+@app.route("/disease_form")
+@login_required
+def disease_form():
+    return render_template("disease_form.html")
+
+@app.route("/predict_disease", methods=["POST"])
+@login_required
+def predict_disease_route():
+    try:
+        if "image" not in request.files:
+            flash("No file uploaded", "danger")
+            return redirect(url_for("disease_form"))
+
+        file = request.files["image"]
+        if file.filename == "":
+            flash("No file selected", "danger")
+            return redirect(url_for("disease_form"))
+
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+        file.save(filepath)
+
+        predicted_class = predict_disease(filepath)
+
+        return render_template(
+            "disease_result.html",
+            result=predicted_class,
+            image_file=filepath
+        )
+
+    except Exception as e:
+        flash("Error during disease prediction. Please try again.", "danger")
+        print(f"Disease prediction error: {e}")
+        return redirect(url_for("disease_form"))
+
+
+# @app.route('/submit', methods=['POST'])
+# def submit_image():
+#     if 'image' not in request.files:
+#         return "No file part", 400
+
+#     file = request.files['image']
+#     if file.filename == '':
+#         return "No selected file", 400
+
+#     if file:
+#         # Save uploaded image temporarily
+#         filepath = os.path.join("static/uploads", file.filename)
+#         file.save(filepath)
+
+#         # 👉 Call your disease detection model here
+#         # Example (replace with actual CNN function):
+#         # result = predict_disease(filepath)
+
+#         # result = "Sample Prediction: Leaf is healthy 🌿"  # placeholder
+#         result = predict_disease(filepath)
+#         # Render submit.html with prediction
+#         return render_template("submit.html", prediction=result, image_path=filepath)
+
+
+@app.route('/submit', methods=['POST'])
+def submit_image():
+    if 'image' not in request.files:
+        return "No file part", 400
+
+    file = request.files['image']
+    if file.filename == '':
+        return "No selected file", 400
+
+    if file:
+        filepath = os.path.join("static/uploads", file.filename)
+        file.save(filepath)
+
+        result = predict_disease(filepath)  # now returns dict
+
+        return render_template(
+            "submit.html",
+            title=result["title"],
+            image_url=filepath,
+            pred=result["pred"],
+            desc=result["desc"],
+            prevent=result["prevent"],
+            simage=result["simage"],
+            sname=result["sname"],
+            buy_link=result["buy_link"]
+        )
 
 if __name__ == "__main__":
     app.run(debug=True)
