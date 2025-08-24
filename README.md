@@ -1,4 +1,4 @@
-# **🌾 FARMMITTR** 🚜  
+# **🌾 FarmMittR** 🚜  
 
 🔍 **An AI-powered web application designed to assist farmers in making informed decisions about crop selection, fertilizer use, and accessing government schemes based on real-time soil, environmental, and policy data.**  
 
