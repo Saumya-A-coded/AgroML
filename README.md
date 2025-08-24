@@ -4,47 +4,19 @@
 
 ---
 
-## **📎 Project Structure**
-```
-├── instance/
-│   ├── users.db                      # Database for user authentication
-├── static/
-│   ├── about1.jpg
-│   ├── background.jpg
-│   ├── image/
-│   ├── img.jpg
-│   ├── new.jpg
-├── templates/
-│   ├── 404.html
-│   ├── about.html
-│   ├── chatbot.html
-│   ├── fertilizer_form.html
-│   ├── home.html
-│   ├── index.html
-│   ├── login.html
-│   ├── register.html
-│   ├── farmer_schemes.html            # Page displaying government farming schemes
-├── Crop_recommendation.csv            # Dataset for crop recommendation
-├── README.md                          # Documentation (You're reading this!)
-├── app.py                              # Main Flask application
-├── fertilizer_model.pkl                # Fertilizer recommendation model
-├── minmaxscaler.pkl                    # Scaler for preprocessing
-├── model.pkl                           # Crop classification model
-├── train_fertilizer_model.py           # Training script for fertilizer model
-├── timescaler.pkl                      # Time-based scaling for predictions
-```
 
----
 
 ## **⚡ Features**
 ✅ **🌱 Crop Recommendation** – Predicts the best crop based on environmental conditions.  
+✅ **🌱 Disease prediction** – Predicts the disease crop is having based on images of crop entered. 
 ✅ **🧪 Fertilizer Suggestion** – Provides the most suitable fertilizer recommendation.  
 ✅ **🌍 Bilingual Support** – Available in both Hindi & English for accessibility.  
 ✅ **💬 AI Chatbot** – Integrated chatbot for answering farming-related queries.  
 ✅ **🔒 User Authentication** – Secure login and registration system.  
 ✅ **🌐 Government Schemes** – Displays farming-related government schemes for farmers.  
 
----
+---NOTE-----
+in order to run disease prediction part you first need to download the trained model from a drive link  ( https://drive.google.com/file/d/1Ky33Gk4_DHI2sdg24dzJVY9YcOnacPL0/view?usp=drive_link) and add it to your project file(not in any folder in side project) and then perform run steps.
 
 ## **🔧 Installation & Setup**
 ### **1️⃣ Create & Activate a Virtual Environment**
@@ -66,6 +38,7 @@ python app.py
 🌟 The app will run on **`http://127.0.0.1:5000/`**  
 
 ---
+
 
 ## **📌 How It Works**
 1️⃣ **User Logs In/Register** 🔑  
