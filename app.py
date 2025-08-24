@@ -345,19 +345,52 @@ def chatbot():
     
     responses = {
     # Greetings
+    'hello': 'Hello! Welcome to Krishe. How can I assist you today?',
+    'hi': 'Hi there! Welcome to Krishe. How can I help you?',
+    'good morning': 'Good morning! Wishing you a productive day ahead. How can Krishe assist you?',
+    'good evening': 'Good evening! Hope you had a great day. How can I help you with Krishe?',
 
     # Login and Registration
+    'how to login': 'To login to Krishe:\n1. Click on the "Login" button in the top right\n2. Enter your registered email and password\n3. Click "Sign In"\nIf you need help, click "Forgot Password".',
+    'how to register': 'To register on Krishe:\n1. Click "Sign Up" in the top right\n2. Fill in your details (name, email, password)\n3. Verify your email\n4. Complete your profile.\nFeel free to reach out if you face any issues!',
+    'login': 'To login to Krishe:\n1. Click on the "Login" button in the top right\n2. Enter your registered email and password\n3. Click "Sign In"\nIf you need help, click "Forgot Password".',
+    'register': 'To register on Krishe:\n1. Click "Sign Up" in the top right\n2. Fill in your details (name, email, password)\n3. Verify your email\n4. Complete your profile.\nFeel free to reach out if you face any issues!',
+    'get started': 'Register and then login on Krishe.',
+    'what to do': 'Register and login on Krishe. Then enter your soil parameters',
+    'how': 'Register and then login on Krishe.',
     
 
+    # About Krishe
+    'what is krishe': 'Krishe is a comprehensive crop recommendation system that helps farmers choose the best crops based on soil conditions and environmental factors.',
+    'about krishe': 'Krishe is an advanced agricultural platform that:\n- Analyzes soil parameters\n- Considers environmental conditions\n- Provides accurate crop recommendations\n- Helps optimize farming decisions\n- Supports sustainable farming practices.',
+    'what': 'Krishe is a comprehensive crop recommendation system that helps farmers choose the best crops based on soil conditions and environmental factors.',
+    'about': 'Krishe is an advanced agricultural platform that:\n- Analyzes soil parameters\n- Considers environmental conditions\n- Provides accurate crop recommendations\n- Helps optimize farming decisions\n- Supports sustainable farming practices.',
 
 
+    # How Krishe Works
+    'how does krishe work': 'Krishe works by:\n1. Analyzing your soil parameters (N, P, K)\n2. Considering environmental factors (temperature, rainfall, humidity, pH)\n3. Using advanced ML models to process data\n4. Providing tailored crop recommendations to maximize yield.',
+    'how it work': 'Krishe works by:\n1. Analyzing your soil parameters (N, P, K)\n2. Considering environmental factors (temperature, rainfall, humidity, pH)\n3. Using advanced ML models to process data\n4. Providing tailored crop recommendations to maximize yield.',
 
 
     # Crop Prediction
+    'predictions': 'Krishe can predict suitable crops based on:\n- Nitrogen content (N)\n- Phosphorus levels (P)\n- Potassium levels (K)\n- Temperature\n- Humidity\n- Soil pH levels\n- Rainfall\n- Historical crop performance.',
+    'predict': 'Krishe can predict suitable crops based on:\n- Nitrogen content (N)\n- Phosphorus levels (P)\n- Potassium levels (K)\n- Temperature\n- Humidity\n- Soil pH levels\n- Rainfall\n- Historical crop performance.',
 
 
+    # Benefits of Krishe
+    'benefits': 'With Krishe, you can:\n- Get accurate crop recommendations\n- Maximize your yield potential\n- Save costs on fertilizers\n- Adopt sustainable farming practices\n- Stay updated with seasonal trends.',
+    'benefit': 'With Krishe, you can:\n- Get accurate crop recommendations\n- Maximize your yield potential\n- Save costs on fertilizers\n- Adopt sustainable farming practices\n- Stay updated with seasonal trends.',
+    'is it free': 'Yes, Krishe is completely free to use! Register now and start optimizing your farming decisions.',
+    'free': 'Yes, Krishe is completely free to use! Register now and start optimizing your farming decisions.',
 
     # Soil Parameters and environmental factors
+    'soil parameters': 'The soil parameters Krishe analyzes include:\n- Nitrogen (N)\n- Phosphorus (P)\n- Potassium (K)\n- pH level\n- Organic matter content\nThese are crucial for determining crop suitability.',
+    'soil': 'The soil parameters Krishe analyzes include:\n- Nitrogen (N)\n- Phosphorus (P)\n- Potassium (K)\n- pH level\n- Organic matter content\nThese are crucial for determining crop suitability.',
+    'environmental factors': 'Environmental factors considered by Krishe are:\n- Temperature\n- Rainfall patterns\n- Humidity levels\n- Seasonal trends\n- Regional weather forecasts.',
+    'environment': 'Environmental factors considered by Krishe are:\n- Temperature\n- Rainfall patterns\n- Humidity levels\n- Seasonal trends\n- Regional weather forecasts.',
+    'weather': 'Environmental factors considered by Krishe are:\n- Temperature\n- Rainfall patterns\n- Humidity levels\n- Seasonal trends\n- Regional weather forecasts.',
+    'minimum data for crop prediction': 'The soil parameters Krishe analyzes include:\n- Nitrogen (N)\n- Phosphorus (P)\n- Potassium (K)\n- pH level\n- Organic matter content\nThese are crucial for determining crop suitability. Environmental factors considered by Krishe are:\n- Temperature\n- Rainfall patterns\n- Humidity levels\n- Seasonal trends\n- Regional weather forecasts.',
+    'minimum data': 'The soil parameters Krishe analyzes include:\n- Nitrogen (N)\n- Phosphorus (P)\n- Potassium (K)\n- pH level\n- Organic matter content\nThese are crucial for determining crop suitability. Environmental factors considered by Krishe are:\n- Temperature\n- Rainfall patterns\n- Humidity levels\n- Seasonal trends\n- Regional weather forecasts.',
     'approximate data': 'Yes, you can enter approximate values, but for the most accurate crop prediction, we recommend using results from a professional soil test. Approximate values may still yield reasonable recommendations, but precision improves prediction quality.',
     'can i enter approximate values': 'Yes, you can enter approximate values, but for the most accurate crop prediction, we recommend using results from a professional soil test. Approximate values may still yield reasonable recommendations, but precision improves prediction quality.',
     'input incorrect data': 'If incorrect data is entered, the prediction may not be accurate and could suggest unsuitable crops. We recommend double-checking your inputs before submission. If you realize a mistake after submission, you can re-enter the correct data and get a new prediction instantly.',
@@ -365,6 +398,8 @@ def chatbot():
 
 
     # Contact and Support
+    'contact': 'You can contact us through:\n- Email: support@krishe.com\n- Phone: +1-234-567-8900\n- Office: 123 Real Estate Street, City\nWe’re here to help you succeed!',
+    'help': 'I can help you with:\n- Login/Registration\n- Soil analysis\n- Crop recommendations\n- Platform usage\n- Any questions about Krishe\nWhat would you like to know?',
     'support': 'You can contact us through:\n- Email:',
 
     # Farewell
@@ -379,6 +414,7 @@ def chatbot():
         if key in message:
             return jsonify({"response": value})
     
+    return jsonify({"response": "I'm not sure about that. Would you like to know about how to use Krishe, get crop recommendations, or learn about our soil analysis process?"})
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
