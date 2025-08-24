@@ -576,11 +576,83 @@ def predict_form():
     return render_template('index.html')
 
 
-@app.route("/predict", methods=['POST'])
-@login_required
+# @app.route("/predict", methods=['POST'])
+# @login_required
+# def predict():
+#     try:
+#         # Get input values from the form
+#         N = float(request.form['Nitrogen'])
+#         P = float(request.form['Phosphorus'])
+#         K = float(request.form['Potassium'])
+#         temp = float(request.form['Temperature'])
+#         humidity = float(request.form['Humidity'])
+#         ph = float(request.form['Ph'])
+#         rainfall = float(request.form['Rainfall'])
+
+#         # Server-side validation for valid input ranges
+#         if not (1 <= N <= 200):
+#             flash('Nitrogen value must be between 1 and 200.', 'danger')
+#             return redirect(url_for('predict_form'))
+#         if not (1 <= P <= 200):
+#             flash('Phosphorus value must be between 1 and 200.', 'danger')
+#             return redirect(url_for('predict_form'))
+#         if not (1 <= K <= 200):
+#             flash('Potassium value must be between 1 and 200.', 'danger')
+#             return redirect(url_for('predict_form'))
+#         if not (5 <= temp <= 50):
+#             flash('Temperature must be between 5°C and 50°C.', 'danger')
+#             return redirect(url_for('predict_form'))
+#         if not (1 <= humidity <= 100):
+#             flash('Humidity must be between 1% and 100%.', 'danger')
+#             return redirect(url_for('predict_form'))
+#         if not (3 <= ph <= 10):
+#             flash('pH value must be between 3 and 10.', 'danger')
+#             return redirect(url_for('predict_form'))
+#         if not (1 <= rainfall <= 500):
+#             flash('Rainfall must be between 1mm and 500mm.', 'danger')
+#             return redirect(url_for('predict_form'))
+
+#         # Prepare features for prediction
+#         feature_list = [N, P, K, temp, humidity, ph, rainfall]
+#         single_pred = np.array(feature_list).reshape(1, -1)
+
+#         # Check if the model and scaler are loaded
+#         if model is None or sc is None or ms is None:
+#             flash('Prediction service is currently unavailable.', 'danger')
+#             return redirect(url_for('predict_form'))
+
+#         # Scale features and predict
+#         scaled_features = ms.transform(single_pred)
+#         final_features = sc.transform(scaled_features)
+#         prediction = model.predict(final_features)
+
+#         # Crop dictionary for decoding the prediction
+#         crop_dict = {
+#             1: "Rice", 2: "Maize", 3: "Jute", 4: "Cotton", 5: "Coconut", 
+#             6: "Papaya", 7: "Orange", 8: "Apple", 9: "Muskmelon", 10: "Watermelon", 
+#             11: "Grapes", 12: "Mango", 13: "Banana", 14: "Pomegranate", 
+#             15: "Lentil", 16: "Blackgram", 17: "Mungbean", 18: "Mothbeans", 
+#             19: "Pigeonpeas", 20: "Kidneybeans", 21: "Chickpea", 22: "Coffee"
+#         }
+
+#         # Prepare result
+#         if prediction[0] in crop_dict:
+#             crop = crop_dict[prediction[0]]
+#             result = f"{crop} is the best crop to be cultivated right there."
+#         else:
+#             result = "Sorry, we could not determine the best crop to be cultivated with the provided data."
+
+#         return render_template('index.html', result=result)
+
+#     except Exception as e:
+#         flash('An error occurred during prediction. Please try again.', 'danger')
+#         print(f"Prediction error: {e}")
+#         return redirect(url_for('predict_form'))
+@app.route("/predict", methods=["POST"])
+
 def predict():
     try:
-        # Get input values from the form
+        # Get input values
         N = float(request.form['Nitrogen'])
         P = float(request.form['Phosphorus'])
         K = float(request.form['Potassium'])
@@ -589,7 +661,7 @@ def predict():
         ph = float(request.form['Ph'])
         rainfall = float(request.form['Rainfall'])
 
-        # Server-side validation for valid input ranges
+        # -------- Validation --------
         if not (1 <= N <= 200):
             flash('Nitrogen value must be between 1 and 200.', 'danger')
             return redirect(url_for('predict_form'))
@@ -612,21 +684,22 @@ def predict():
             flash('Rainfall must be between 1mm and 500mm.', 'danger')
             return redirect(url_for('predict_form'))
 
-        # Prepare features for prediction
+        # -------- Prepare Features --------
         feature_list = [N, P, K, temp, humidity, ph, rainfall]
         single_pred = np.array(feature_list).reshape(1, -1)
 
-        # Check if the model and scaler are loaded
-        if model is None or sc is None or ms is None:
+        if model is None or sc is None:
             flash('Prediction service is currently unavailable.', 'danger')
             return redirect(url_for('predict_form'))
 
-        # Scale features and predict
-        scaled_features = ms.transform(single_pred)
-        final_features = sc.transform(scaled_features)
-        prediction = model.predict(final_features)
+        # Scale input
+        final_features = sc.transform(single_pred)
 
-        # Crop dictionary for decoding the prediction
+        # -------- Predict --------
+        prediction = model.predict(final_features)
+        print("Model raw prediction:", prediction)  # 🔎 Debugging
+
+        # -------- Decode Result --------
         crop_dict = {
             1: "Rice", 2: "Maize", 3: "Jute", 4: "Cotton", 5: "Coconut", 
             6: "Papaya", 7: "Orange", 8: "Apple", 9: "Muskmelon", 10: "Watermelon", 
@@ -635,18 +708,24 @@ def predict():
             19: "Pigeonpeas", 20: "Kidneybeans", 21: "Chickpea", 22: "Coffee"
         }
 
-        # Prepare result
-        if prediction[0] in crop_dict:
+        # Case 1: model outputs integer labels
+        if isinstance(prediction[0], (int, np.integer)) and prediction[0] in crop_dict:
             crop = crop_dict[prediction[0]]
             result = f"{crop} is the best crop to be cultivated right there."
+
+        # Case 2: model outputs string labels (e.g., 'rice')
+        elif isinstance(prediction[0], str):
+            crop = prediction[0].capitalize()
+            result = f"{crop} is the best crop to be cultivated right there."
+
         else:
             result = "Sorry, we could not determine the best crop to be cultivated with the provided data."
 
         return render_template('index.html', result=result)
 
     except Exception as e:
-        flash('An error occurred during prediction. Please try again.', 'danger')
         print(f"Prediction error: {e}")
+        flash('An error occurred during prediction. Please try again.', 'danger')
         return redirect(url_for('predict_form'))
 
 @app.route('/about')
