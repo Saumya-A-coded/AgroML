@@ -723,30 +723,6 @@ def predict_disease_route():
         return redirect(url_for("disease_form"))
 
 
-# @app.route('/submit', methods=['POST'])
-# def submit_image():
-#     if 'image' not in request.files:
-#         return "No file part", 400
-
-#     file = request.files['image']
-#     if file.filename == '':
-#         return "No selected file", 400
-
-#     if file:
-#         # Save uploaded image temporarily
-#         filepath = os.path.join("static/uploads", file.filename)
-#         file.save(filepath)
-
-#         # 👉 Call your disease detection model here
-#         # Example (replace with actual CNN function):
-#         # result = predict_disease(filepath)
-
-#         # result = "Sample Prediction: Leaf is healthy 🌿"  # placeholder
-#         result = predict_disease(filepath)
-#         # Render submit.html with prediction
-#         return render_template("submit.html", prediction=result, image_path=filepath)
-
-
 @app.route('/submit', methods=['POST'])
 def submit_image():
     if 'image' not in request.files:
