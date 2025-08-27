@@ -1,4 +1,8 @@
-# **🌾 FarmMittR** 🚜  
+**NOTE** : In order to look for commit history and quick test the code , here is our gitHub repo link :
+
+ https://github.com/Saumya-A-coded/FarmMitr.git 
+
+# **🌾 FARMMITTR** 🚜  
 
 🔍 **An AI-powered web application designed to assist farmers in making informed decisions about crop selection, fertilizer use, and accessing government schemes based on real-time soil, environmental, and policy data.**  
 
@@ -38,7 +42,7 @@ python app.py
 🌟 The app will run on **`http://127.0.0.1:5000/`**  
 
 ---
-
+Note : If it will show any error in instance/user.db  then , just discard that change in github and open the project.
 
 ## **📌 How It Works**
 1️⃣ **User Logs In/Register** 🔑  
@@ -47,6 +51,8 @@ python app.py
 4️⃣ **Gets AI-Based Recommendations** 🤖  
 5️⃣ **Chatbot Assistance for Queries** 💬  
 6️⃣ **Accesses Government Farming Schemes for Additional Benefits** 🌐  
+7️⃣ **Contact us**
+8️⃣ **crop prediction**
 
 ---
 
